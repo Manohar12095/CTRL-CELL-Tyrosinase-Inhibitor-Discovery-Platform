@@ -8,6 +8,7 @@ import {
 import {
   PredSkinPill, ProToxEndpointPill, RoleBadge, NotTestedBadge,
 } from "@/components/ui/VerdictPills";
+import { StructureViewer } from "@/components/compounds/StructureViewer";
 import Link from "next/link";
 
 interface Props {
@@ -88,30 +89,13 @@ export default async function CompoundDetailPage({ params }: Props) {
           <h2 style={{ fontSize: "0.875rem", fontWeight: 700, color: "#94a3b8", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
             2D Structure
           </h2>
-          <div
-            style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid #21262d",
-              borderRadius: 8,
-              height: 300,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "0.75rem",
-              overflow: "hidden",
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={structure_svg ?? `https://www.simolecule.com/cdkdepict/depict/bot/svg?smi=${encodeURIComponent(smiles)}&w=600&h=400`}
-              alt={`2D structure of ${name}`}
-              style={{
-                maxHeight: "100%",
-                maxWidth: "100%",
-                filter: structure_svg
-                  ? "invert(1) hue-rotate(180deg)"
-                  : "invert(1) hue-rotate(180deg) brightness(1.5)",
-              }}
+          <div style={{ marginBottom: "0.75rem" }}>
+            <StructureViewer
+              smiles={smiles}
+              name={name}
+              structure_svg={structure_svg}
+              height={320}
+              showHint={true}
             />
           </div>
           <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "#334155", wordBreak: "break-all" }}>
