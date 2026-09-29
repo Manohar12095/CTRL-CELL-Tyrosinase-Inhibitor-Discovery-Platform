@@ -93,7 +93,7 @@ export default async function CompoundDetailPage({ params }: Props) {
               background: "rgba(255,255,255,0.03)",
               border: "1px solid #21262d",
               borderRadius: 8,
-              height: 200,
+              height: 300,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -101,20 +101,18 @@ export default async function CompoundDetailPage({ params }: Props) {
               overflow: "hidden",
             }}
           >
-            {structure_svg ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={structure_svg}
-                alt={`2D structure of ${name}`}
-                style={{ maxHeight: "100%", maxWidth: "100%", filter: "invert(1) hue-rotate(180deg)" }}
-              />
-            ) : (
-              <img
-                src={`https://www.simolecule.com/cdkdepict/depict/bot/svg?smi=${encodeURIComponent(smiles)}&w=300&h=200`}
-                alt={`2D structure of ${name}`}
-                style={{ maxHeight: "100%", maxWidth: "100%", filter: "invert(1) hue-rotate(180deg) brightness(1.5)" }}
-              />
-            )}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={structure_svg ?? `https://www.simolecule.com/cdkdepict/depict/bot/svg?smi=${encodeURIComponent(smiles)}&w=600&h=400`}
+              alt={`2D structure of ${name}`}
+              style={{
+                maxHeight: "100%",
+                maxWidth: "100%",
+                filter: structure_svg
+                  ? "invert(1) hue-rotate(180deg)"
+                  : "invert(1) hue-rotate(180deg) brightness(1.5)",
+              }}
+            />
           </div>
           <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", color: "#334155", wordBreak: "break-all" }}>
             SMILES: {smiles}
