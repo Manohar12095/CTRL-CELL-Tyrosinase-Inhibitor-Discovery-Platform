@@ -1,0 +1,174 @@
+[
+  {
+    "id": "MALT-01",
+    "name": "Maltol",
+    "role": "scaffold parent",
+    "smiles": "Cc1occc(=O)c1O",
+    "MW": 126.03,
+    "logP": -0.157,
+    "TPSA": 50.44,
+    "docking": null,
+    "predskin": null,
+    "protox": null
+  },
+  {
+    "id": "MALT-02",
+    "name": "Ethylmaltol",
+    "role": "backup candidate (non-sensitizer)",
+    "smiles": "CCc1occc(=O)c1O",
+    "MW": 140.05,
+    "logP": 0.601,
+    "TPSA": 50.44,
+    "docking": null,
+    "predskin": {
+      "result": "NC - non-sensitizer",
+      "confidence": 57.9,
+      "ke_breakdown": {
+        "DPRA": "non-sensitizer 73.2%",
+        "KeratinoSens": "non-sensitizer 88.3%",
+        "hCLAT_USens": "non-sensitizer 56.1%",
+        "LLNA": "non-sensitizer 79.0%"
+      }
+    },
+    "protox": null
+  },
+  {
+    "id": "KOJIC-01",
+    "name": "Kojic acid",
+    "role": "backup candidate (non-sensitizer)",
+    "smiles": "OCc1cc(=O)c(O)co1",
+    "MW": 142.03,
+    "logP": -0.565,
+    "TPSA": 70.67,
+    "docking": null,
+    "predskin": {
+      "result": "NC - non-sensitizer",
+      "confidence": 58.6,
+      "ke_breakdown": {
+        "DPRA": "non-sensitizer 83.2%",
+        "KeratinoSens": "non-sensitizer 90.5%",
+        "hCLAT_USens": "non-sensitizer 57.6%",
+        "LLNA": "non-sensitizer 66.4%"
+      }
+    },
+    "protox": null
+  },
+  {
+    "id": "PHMALT-01",
+    "name": "Phenylmaltol",
+    "role": "LEAD CANDIDATE (Round 1 top pick, flagged in Round 2)",
+    "smiles": "Cc1oc(-c2ccccc2)cc(=O)c1O",
+    "MW": 202.06,
+    "logP": 2.373,
+    "TPSA": 50.44,
+    "docking": {
+      "tool": "SwissDock (Attracting Cavities 2.0)",
+      "target": "2Y9X",
+      "best_score_kcal_mol": -6.696,
+      "n_clusters": 147,
+      "note": "SwissDock job was labeled 'maltol_benzyl_B' — phenylmaltol identity confirmed by user; benzylmaltol result is pending separately"
+    },
+    "predskin": {
+      "result": "GHS 1B - low potency sensitizer",
+      "confidence": 66.0,
+      "ke_breakdown": {
+        "DPRA": "non-sensitizer 68.0%",
+        "KeratinoSens": "sensitizer 36.7%",
+        "hCLAT_USens": "non-sensitizer 54.9%",
+        "LLNA": "non-sensitizer 87.0%",
+        "AO_PredSkin": "sensitizer 66.0%"
+      }
+    },
+    "protox": {
+      "LD50_mg_kg": 2500,
+      "toxicity_class": 5,
+      "hepatotoxicity": "inactive 0.59",
+      "carcinogenicity": "inactive 0.55",
+      "immunotoxicity": "inactive 0.97",
+      "mutagenicity": "inactive 0.67",
+      "cytotoxicity": "inactive 0.79"
+    }
+  },
+  {
+    "id": "BZMALT-01",
+    "name": "Benzylmaltol",
+    "role": "structural analog of lead, also flagged",
+    "smiles": "Cc1oc(Cc2ccccc2)cc(=O)c1O",
+    "MW": 216.08,
+    "logP": 2.303,
+    "TPSA": 50.44,
+    "docking": null,
+    "predskin": {
+      "result": "GHS 1B - low potency sensitizer",
+      "confidence": 59.7,
+      "ke_breakdown": {
+        "DPRA": "non-sensitizer 68.5%",
+        "KeratinoSens": "sensitizer 20.6%",
+        "hCLAT_USens": "non-sensitizer 55.2%",
+        "LLNA": "non-sensitizer 75.0%",
+        "AO_PredSkin": "sensitizer 59.7%"
+      }
+    },
+    "protox": null
+  },
+  {
+    "id": "CINN-01",
+    "name": "Cinnamaldehyde",
+    "role": "reference toxicant (known fragrance allergen, used as a mixture-effect comparison, not an inhibitor candidate)",
+    "smiles": "O=CC=Cc1ccccc1",
+    "MW": 132.06,
+    "logP": 2.131,
+    "TPSA": 17.07,
+    "docking": null,
+    "predskin": null,
+    "predskin_note": "Not tested individually — see MIX-01 for mixture effect with Ethylmaltol",
+    "protox": null
+  },
+  {
+    "id": "MIX-01",
+    "name": "Ethylmaltol + Cinnamaldehyde (mixture)",
+    "role": "mixture-effect test",
+    "smiles": "CCc1c(O)c(=O)cco1.O=C/C=C/c1ccccc1",
+    "MW": null,
+    "logP": null,
+    "TPSA": null,
+    "docking": null,
+    "predskin": {
+      "result": "GHS 1B - sensitizer",
+      "confidence": 76.7,
+      "ke_breakdown": {
+        "DPRA": "sensitizer 59.6%",
+        "KeratinoSens": "sensitizer 37.8%",
+        "hCLAT_USens": "non-sensitizer 53.4%",
+        "LLNA": "non-sensitizer 92.4%"
+      },
+      "note": "Ethylmaltol alone is non-sensitizing; the mixture with cinnamaldehyde (a known allergen) flips the AOP call to sensitizer — this is a real, citable mixture-toxicity effect, not an error"
+    },
+    "protox": null
+  },
+  {
+    "id": "TROP-01",
+    "name": "Tropolone",
+    "role": "reference inhibitor (market comparator)",
+    "smiles": "OC1=CC=CC=C1=O",
+    "MW": 122.12,
+    "logP": 0.75,
+    "TPSA": 37.3,
+    "docking": {
+      "tool": "SwissDock (Attracting Cavities 2.0)",
+      "target": "2Y9X",
+      "best_score_kcal_mol": -6.284,
+      "n_clusters": 96
+    },
+    "predskin": null,
+    "protox": {
+      "LD50_mg_kg": 385,
+      "toxicity_class": 4,
+      "hepatotoxicity": "inactive 0.59",
+      "carcinogenicity": "ACTIVE 0.55",
+      "immunotoxicity": "inactive 0.99",
+      "mutagenicity": "inactive 0.84",
+      "cytotoxicity": "inactive 0.74"
+    }
+  }
+]
